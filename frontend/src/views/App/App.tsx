@@ -1,23 +1,17 @@
 import React from 'react';
-import styled from 'styled-components';
+import { StyledComponent } from './App.styled';
 
-const App = () => {
+export const App = () => {
   return (
     <div className="App">
-      <StyledHeader>
+      <StyledComponent>
         <p>
           Edit <code>src/App.tsx</code> and save to reload...
         </p>
         <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
           Learn React
         </a>
-      </StyledHeader>
+      </StyledComponent>
     </div>
   );
 };
-
-const StyledHeader = styled.header`
-  background-color: red;
-`;
-
-export default App;
