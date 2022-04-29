@@ -7,7 +7,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "format-all": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
-    "eject": "react-scripts eject" 
+    "eject": "react-scripts eject"
   },
   "dependencies": {
     "react": "^17.0.0",
