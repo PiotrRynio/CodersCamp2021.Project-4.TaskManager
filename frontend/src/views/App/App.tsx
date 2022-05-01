@@ -6,7 +6,7 @@ export const App = () => {
   return (
     <div className="App">
       <StyledComponent>
-        <Logo isWithoutLogoTyp={'small'} className={''} alt={''} height={0} />
+        <Logo isWithoutLogoTyp={'full'} hasClassName={''} hasAlt={''} hasHeight={30} />
       </StyledComponent>
     </div>
   );
