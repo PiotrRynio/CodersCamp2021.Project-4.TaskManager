@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prepare": "husky install && cd frontend && npm install",
+    "prepare": "husky install",
     "start-fe": "cd frontend && npm start",
     "start-be": "cd backend && npm run start",
     "start-be-dev": "cd backend && npm run start-dev",
@@ -15,5 +15,7 @@
     "husky": "^7.0.4"
   },
   "dependencies": {
+    "antd": "^4.20.2",
+    "react-router-dom": "^6.3.0"
   }
 }
