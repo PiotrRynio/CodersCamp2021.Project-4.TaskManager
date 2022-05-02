@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { usePageTitle } from 'providers/PageTitleProvider';
 
-export const TodoList = () => {
+export const Statistics = () => {
   const { setTitle } = usePageTitle();
 
   useEffect(() => {
-    setTitle('To Do List');
+    setTitle('Statistics');
   }, [setTitle]);
 
-  return <>To Do List</>;
+  return <>Statistics</>;
 };

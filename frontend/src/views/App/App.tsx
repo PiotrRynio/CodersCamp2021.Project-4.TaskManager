@@ -1,13 +1,24 @@
-import React from 'react';
+import { AppHeader } from 'components/AppHeader/AppHeader';
 import { AppRoutes } from 'routes/AppRoutes';
-import { StyledComponent } from './App.styled';
+import { usePageTitle } from 'providers/PageTitleProvider';
+import { Layout } from 'antd';
+import { LogoutOutlined } from '@ant-design/icons';
+import { AppContent, AppFooter } from './App.styled';
+
+const { Sider } = Layout;
 
 export const App = () => {
+  const { title } = usePageTitle();
   return (
-    <div className="App">
-      <StyledComponent>
-        <AppRoutes />
-      </StyledComponent>
-    </div>
+    <Layout>
+      <AppHeader pageTitle={title} logo={<LogoutOutlined />} />
+      <Layout>
+        <Sider />
+        <AppContent>
+          <AppRoutes />
+        </AppContent>
+      </Layout>
+      <AppFooter />
+    </Layout>
   );
 };
