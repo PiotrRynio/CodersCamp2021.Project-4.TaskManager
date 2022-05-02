@@ -41,7 +41,13 @@ export const app = async (
 
   const repository = new MongoEmailsListRepository();
   const emailsListModule: Module = {
-    core: EmailsListModuleCore(eventBus, commandBus, currentTimeProvider, entityIdGenerator, repository),
+    core: EmailsListModuleCore({
+      eventPublisher: eventBus,
+      commandPublisher: commandBus,
+      currentTimeProvider: currentTimeProvider,
+      entityIdGenerator,
+      repository,
+    }),
     restApi: EmailsListRestApiModule(commandBus, eventBus, queryBus),
   };
 
