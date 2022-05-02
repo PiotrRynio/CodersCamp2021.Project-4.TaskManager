@@ -8,6 +8,12 @@ export function testEmailsListModule(currentTime: Date): TestModuleCore {
   const entityIdGenerator = new UuidEntityIdGenerator();
 
   return testModuleCore((commandBus, eventBus, queryBus) =>
-    EmailsListModuleCore(eventBus, commandBus, () => currentTime, entityIdGenerator, registrationRepository),
+    EmailsListModuleCore({
+      eventPublisher: eventBus,
+      commandPublisher: commandBus,
+      currentTimeProvider: () => currentTime,
+      entityIdGenerator,
+      repository: registrationRepository,
+    }),
   );
 }
