@@ -1,13 +1,13 @@
 import { AppHeaderWrapper } from './AppHeader.styled';
 import { PageHeader } from 'antd';
 
-export interface topBarProps {
+export interface AppHeaderProps {
   pageTitle?: string | null;
   className?: string;
   logo?: React.ReactNode;
 }
 
-export const AppHeader = ({ pageTitle, className, logo }: topBarProps) => {
+export const AppHeader = ({ pageTitle, className, logo }: AppHeaderProps) => {
   const providedLogo = logo ? logo : null;
 
   return (
