@@ -3,73 +3,45 @@ import { Button as AntButton } from 'antd';
 import { NativeButtonProps } from 'antd/lib/button/button';
 
 interface StyledButtonProps extends NativeButtonProps {
-  variant?: 'primary' | 'secondary';
-  disabled?: boolean;
-  size?: 'small' | 'large';
-  ghost?: boolean;
+  color?: 'primary' | 'secondary';
 }
 
 export const StyledButton = styled(AntButton)<StyledButtonProps>`
-  cursor: pointer;
-  font-size: 1rem;
-  width: 120px;
-  min-height: 30px;
-  border-radius: 5px;
-  border: none;
-  padding: 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   ${(props) =>
-    props.variant === 'primary' &&
+    props.color === 'primary' &&
     css`
       background-color: ${({ theme }) => theme.colors.primary};
       color: ${({ theme }) => theme.colors.regularText};
+      border: 1px solid ${({ theme }) => theme.colors.primary};
       &:hover {
-        background-color: ${({ theme }) => theme.colors.btnHoverPrimary};
+        background-color: ${({ theme }) => theme.colors.hoverPrimary};
+        color: ${({ theme }) => theme.colors.regularText};
+        border: 1px solid ${({ theme }) => theme.colors.primary};
       }
       &:focus,
       &:active {
-        background-color: ${({ theme }) => theme.colors.btnActivePrimary};
+        background-color: ${({ theme }) => theme.colors.activePrimary};
+        color: ${({ theme }) => theme.colors.regularText};
+        border: 1px solid ${({ theme }) => theme.colors.primary};
       }
     `}
   ${(props) =>
-    props.variant === 'secondary' &&
+    props.color === 'secondary' &&
     css`
       background-color: ${({ theme }) => theme.colors.secondary};
       color: ${({ theme }) => theme.colors.regularText};
+      border: 1px solid ${({ theme }) => theme.colors.secondary};
+
       &:hover {
-        background-color: ${({ theme }) => theme.colors.btnHoverSecondary};
+        background-color: ${({ theme }) => theme.colors.hoverSecondary};
+        color: ${({ theme }) => theme.colors.regularText};
+        border: 1px solid ${({ theme }) => theme.colors.secondary};
       }
       &:focus,
       &:active {
-        background-color: ${({ theme }) => theme.colors.btnActiveSecondary};
+        background-color: ${({ theme }) => theme.colors.activeSecondary};
+        color: ${({ theme }) => theme.colors.regularText};
+        border: 1px solid ${({ theme }) => theme.colors.secondary};
       }
-    `}
-  ${(props) =>
-    props.disabled &&
-    css`
-      background-color: ${({ theme }) => theme.colors.disabled};
-    `}
-    ${(props) =>
-    props.size === 'small' &&
-    css`
-      font-size: 0.8rem;
-      width: 70px;
-      padding: 0.2rem;
-    `}
-    ${(props) =>
-    props.size === 'large' &&
-    css`
-      font-size: 1.2rem;
-      width: 140px;
-      padding: 0.5rem 1rem;
-    `}
-${(props) =>
-    props.ghost &&
-    css`
-      border: 1px solid ${({ theme }) => theme.colors.primary};
-      background-color: transparent;
-      box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.26);
     `}
 `;

@@ -1,25 +1,41 @@
-import { ButtonHTMLAttributes, ReactNode, MouseEvent } from 'react';
+import { ReactNode, MouseEvent } from 'react';
 import { StyledButton } from './Button.styled';
+import { NativeButtonProps } from 'antd/lib/button/button';
+import 'antd/dist/antd.css';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends NativeButtonProps {
   children: ReactNode;
   htmlType: 'button' | 'submit' | 'reset';
   handleClick?: (event: MouseEvent<HTMLButtonElement>) => void;
-  variant?: 'primary' | 'secondary';
-  disabled?: boolean;
+  type?: 'primary' | 'default' | 'dashed' | 'text' | 'link';
+  isDisabled?: boolean;
   size?: 'small' | 'large';
   ghost?: boolean;
+  shape?: 'circle' | 'round';
+  color?: 'primary' | 'secondary';
 }
 
-export const Button = ({ children, htmlType, handleClick, disabled, variant, size, ghost }: ButtonProps) => {
+export const Button = ({
+  children,
+  htmlType,
+  handleClick,
+  type,
+  isDisabled,
+  size,
+  ghost,
+  shape,
+  color,
+}: ButtonProps) => {
   return (
     <StyledButton
       htmlType={htmlType}
       onClick={handleClick}
-      disabled={disabled}
-      variant={variant}
+      type={type}
+      disabled={isDisabled}
       size={size}
       ghost={ghost}
+      shape={shape}
+      color={color}
     >
       {children ? <div>{children}</div> : null}
     </StyledButton>
