@@ -11,8 +11,8 @@ export const Wrapper = styled.div`
 `;
 
 export const TextLogo = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.sm};
-  font-weight: ${({ theme }) => theme.fontWeight.extraBold};
+  font-size: ${({ theme }) => theme.fontSize.lg};
+  font-weight: ${({ theme }) => theme.fontWeight.extrabold};
   color: ${({ theme }) => theme.colors.primary};
   margin-bottom: 0;
 `;
