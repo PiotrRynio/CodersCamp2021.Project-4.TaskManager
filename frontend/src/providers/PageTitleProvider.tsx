@@ -1,14 +1,14 @@
 import { createContext, ReactNode, useContext, useState } from 'react';
 
-interface ItitleContext {
-  title: string | null;
-  setTitle: React.Dispatch<React.SetStateAction<string | null>>;
+interface TitleContext {
+  title?: string;
+  setTitle: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const PageTitleContext = createContext({} as ItitleContext);
+const PageTitleContext = createContext({} as TitleContext);
 
 const PageTitleProvider = ({ children }: { children: ReactNode }) => {
-  const [title, setTitle] = useState<string | null>(null);
+  const [title, setTitle] = useState<string>('');
 
   return <PageTitleContext.Provider value={{ title, setTitle }}>{children}</PageTitleContext.Provider>;
 };
