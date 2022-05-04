@@ -1,6 +1,5 @@
-import React from 'react';
 import { StyledComponent } from './App.styled';
-import { Logo } from 'components/Logo/Logo';
+import { Logo } from 'components';
 
 export const App = () => {
   return (

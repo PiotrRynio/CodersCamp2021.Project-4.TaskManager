@@ -10,24 +10,12 @@ export const Logo = ({ isWithoutLogoTyp, height }: LogoProps) => {
   const logoHeight = height ? height : 48;
 
   if (isWithoutLogoTyp === 'small') {
-    return (
-      <LogoStyle
-        src={logoImage}
-        className="task-manager-logo"
-        alt="Task manager application logo"
-        height={logoHeight}
-      />
-    );
+    return <LogoStyle src={logoImage} alt="Task manager application logo" height={logoHeight} />;
   }
 
   return (
     <Wrapper>
-      <LogoStyle
-        src={logoImage}
-        className="task-manager-logo"
-        alt="Task manager application logo"
-        height={logoHeight}
-      />
+      <LogoStyle src={logoImage} alt="Task manager application logo" height={logoHeight} />
       <TextLogo>Task Manager</TextLogo>
     </Wrapper>
   );
