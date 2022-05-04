@@ -1,0 +1,61 @@
+import { TodoTaskListProps } from '../../components/TodoTaskList/types';
+
+export const ListMock: TodoTaskListProps = {
+  todoTasks: [
+    {
+      text: 'example text 1',
+      onStarClick: () => {
+        console.log('on start click');
+      },
+      onDoneClick: () => {
+        console.log('on done click');
+      },
+      isDone: true,
+      isImportant: false,
+    },
+    {
+      text: 'example text 2',
+      onStarClick: () => {
+        console.log('on start click');
+      },
+      onDoneClick: () => {
+        console.log('on done click');
+      },
+      isDone: true,
+      isImportant: true,
+    },
+    {
+      text: 'example text 3',
+      onStarClick: () => {
+        console.log('on start click');
+      },
+      onDoneClick: () => {
+        console.log('on done click');
+      },
+      isDone: true,
+      isImportant: false,
+    },
+    {
+      text: 'example text 4',
+      onStarClick: () => {
+        console.log('on start click');
+      },
+      onDoneClick: () => {
+        console.log('on done click');
+      },
+      isDone: false,
+      isImportant: true,
+    },
+    {
+      text: 'example text 5',
+      onStarClick: () => {
+        console.log('on start click');
+      },
+      onDoneClick: () => {
+        console.log('on done click');
+      },
+      isDone: false,
+      isImportant: false,
+    },
+  ],
+};

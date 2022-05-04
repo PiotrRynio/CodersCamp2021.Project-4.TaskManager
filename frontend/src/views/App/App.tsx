@@ -1,5 +1,7 @@
 import React from 'react';
 import { StyledComponent } from './App.styled';
+import { TodoTaskList } from 'components/TodoTaskList/TodoTaskList';
+import { ListMock } from 'mock-data/TodoTaskList/TodotaskListMock';
 
 export const App = () => {
   return (
@@ -11,6 +13,7 @@ export const App = () => {
         <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
           Learn React
         </a>
+        <TodoTaskList todoTasks={ListMock.todoTasks} />
       </StyledComponent>
     </div>
   );
