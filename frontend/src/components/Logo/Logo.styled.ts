@@ -11,8 +11,8 @@ export const Wrapper = styled.div`
 `;
 
 export const TextLogo = styled.p`
-  font-size: 20px;
-  font-weight: 900;
-  color: rgb(133 47 225);
+  font-size: ${({ theme }) => theme.fontSize.sm};
+  font-weight: ${({ theme }) => theme.fontWeight.extraBold};
+  color: ${({ theme }) => theme.colors.primary};
   margin-bottom: 0;
 `;
