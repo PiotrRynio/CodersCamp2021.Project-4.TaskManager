@@ -1,7 +1,6 @@
 import { ReactNode, MouseEvent } from 'react';
 import { StyledButton } from './Button.styled';
 import { NativeButtonProps } from 'antd/lib/button/button';
-import 'antd/dist/antd.css';
 
 interface ButtonProps extends NativeButtonProps {
   children: ReactNode;
@@ -26,6 +25,7 @@ export const Button = ({
   shape,
   color,
 }: ButtonProps) => {
+  console.log(children);
   return (
     <StyledButton
       htmlType={htmlType}
@@ -37,7 +37,7 @@ export const Button = ({
       shape={shape}
       color={color}
     >
-      {children ? <div>{children}</div> : null}
+      {children ? children : null}
     </StyledButton>
   );
 };
