@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'assets';
 import { GlobalStyles } from 'assets';
+import 'antd/dist/antd.min.css';
 
 export const AppProviders = ({ children }: { children: ReactNode }) => {
   return (
