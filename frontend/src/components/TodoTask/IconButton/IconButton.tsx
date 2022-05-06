@@ -1,35 +1,25 @@
-import { Button } from 'antd';
-import { StarFilled, StarOutlined, BorderOutlined, CheckSquareOutlined } from '@ant-design/icons';
-import { blue } from '@ant-design/colors';
+import { StyledButton, StarOn, StarOff, CheckBoxOn, CheckBoxOff } from './IconButton.styled';
 
 export type IconButtonProps = {
   onClick(): void;
-  color?: string;
   variant: 'star' | 'check';
-  state: boolean;
+  isOn: boolean;
 };
 
-export const IconButton = ({ onClick, color = blue.primary, state, variant }: IconButtonProps) => {
-  const onIcon =
-    variant === 'star' ? (
-      <StarFilled style={{ color: color }} />
-    ) : (
-      <CheckSquareOutlined style={{ color: color }} />
-    );
-  const offIcon =
-    variant === 'star' ? (
-      <StarOutlined style={{ color: color }} />
-    ) : (
-      <BorderOutlined style={{ color: color }} />
-    );
+export const IconButton = ({ onClick, isOn, variant }: IconButtonProps) => {
+  let onIcon;
+  let offIcon;
 
-  return (
-    <Button
-      style={{ border: 'none' }}
-      ghost={true}
-      onClick={onClick}
-      size={'large'}
-      icon={state ? onIcon : offIcon}
-    />
-  );
+  switch (variant) {
+    case 'star':
+      onIcon = <StarOn />;
+      offIcon = <StarOff />;
+      break;
+    case 'check':
+      onIcon = <CheckBoxOn />;
+      offIcon = <CheckBoxOff />;
+      break;
+  }
+
+  return <StyledButton ghost={true} onClick={onClick} size="large" icon={isOn ? onIcon : offIcon} />;
 };

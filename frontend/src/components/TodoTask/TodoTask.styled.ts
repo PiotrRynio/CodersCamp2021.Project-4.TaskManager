@@ -6,5 +6,5 @@ interface StyledRowProps extends RowProps {
 }
 
 export const StyledRow = styled(Row)<StyledRowProps>`
-  background: ${({ isDone }) => (isDone ? '#eee' : 'transparent')};
+  background: ${({ theme, isDone }) => (isDone ? theme.colors.gray : theme.colors.transparent)};
 `;
