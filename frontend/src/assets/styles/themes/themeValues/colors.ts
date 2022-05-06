@@ -11,7 +11,7 @@ export type Colors = {
 
 export const colors: Colors = {
   primary: '#4eadc5',
-  secondary: '#5CDB95',
+  secondary: '#648bb2',
   regularText: '#000',
   activePrimary: '#0082a3',
   hoverPrimary: '#20f7e9',
