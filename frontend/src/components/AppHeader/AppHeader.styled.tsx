@@ -6,9 +6,8 @@ export const AppHeaderWrapper = styled.div`
   top: 0;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  text-align: center;
   overflow: hidden;
 
   height: 56px;
@@ -16,4 +15,10 @@ export const AppHeaderWrapper = styled.div`
   padding: 0 20px;
 
   background-color: ${({ theme }) => theme.colors.secondary};
+`;
+
+export const Logo = styled.div`
+  position: fixed;
+  left: 0;
+  padding-left: 20px;
 `;

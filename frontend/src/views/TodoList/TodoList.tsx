@@ -6,7 +6,7 @@ export const TodoList = () => {
 
   useEffect(() => {
     setTitle('To Do List');
-  }, [setTitle]);
+  }, []);
 
   return <>To Do List</>;
 };

@@ -6,7 +6,7 @@ export const Statistics = () => {
 
   useEffect(() => {
     setTitle('Statistics');
-  }, [setTitle]);
+  }, []);
 
   return <>Statistics</>;
 };

@@ -14,7 +14,7 @@ const AllTheProviders = ({ children }: { children: ReactNode }) => {
   );
 };
 
-const customRender = (ui: any, options: any) => render(ui, { wrapper: AllTheProviders, ...options });
+const customRender = (ui: any, options?: any) => render(ui, { wrapper: AllTheProviders, ...options });
 
 export * from '@testing-library/react';
 
