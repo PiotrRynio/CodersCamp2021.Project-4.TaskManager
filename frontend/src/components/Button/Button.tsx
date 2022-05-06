@@ -25,7 +25,6 @@ export const Button = ({
   shape,
   color,
 }: ButtonProps) => {
-  console.log(children);
   return (
     <StyledButton
       htmlType={htmlType}
