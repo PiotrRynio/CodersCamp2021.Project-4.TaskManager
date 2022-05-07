@@ -1,3 +1,5 @@
+import { gold } from '@ant-design/colors';
+
 export type Colors = {
   primary: string;
   secondary: string;
@@ -7,6 +9,9 @@ export type Colors = {
   activeSecondary: string;
   hoverSecondary: string;
   disabled: string;
+  star: string;
+  doneTaskBackground: string;
+  transparent: string;
 };
 
 export const colors: Colors = {
@@ -18,4 +23,7 @@ export const colors: Colors = {
   activeSecondary: '#EDF5E1',
   hoverSecondary: '#8EE4AF',
   disabled: '#ededed',
+  star: gold[5],
+  doneTaskBackground: '#eee',
+  transparent: 'transparent',
 };
