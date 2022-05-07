@@ -3,11 +3,11 @@ import { Button } from 'antd';
 import { StarFilled, StarOutlined, BorderOutlined, CheckSquareOutlined } from '@ant-design/icons';
 
 export const StarOn = styled(StarFilled)`
-  color: ${({ theme }) => theme.colors.gold};
+  color: ${({ theme }) => theme.colors.star};
 `;
 
 export const StarOff = styled(StarOutlined)`
-  color: ${({ theme }) => theme.colors.gold};
+  color: ${({ theme }) => theme.colors.star};
 `;
 
 export const CheckBoxOn = styled(CheckSquareOutlined)`

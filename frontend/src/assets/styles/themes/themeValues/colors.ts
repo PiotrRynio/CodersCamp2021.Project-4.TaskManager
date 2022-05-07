@@ -3,15 +3,15 @@ import { gold } from '@ant-design/colors';
 export type Colors = {
   primary: string;
   regularText: string;
-  gold: string;
-  gray: string;
+  star: string;
+  doneTaskBackground: string;
   transparent: string;
 };
 
 export const colors: Colors = {
   primary: '#4eadc5',
   regularText: '#000',
-  gold: gold[5],
-  gray: '#eee',
+  star: gold[5],
+  doneTaskBackground: '#eee',
   transparent: 'transparent',
 };
