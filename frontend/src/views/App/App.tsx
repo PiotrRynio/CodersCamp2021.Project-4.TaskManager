@@ -1,20 +1,27 @@
 import React from 'react';
-import { StyledComponent } from './App.styled';
 import { TodoTaskList } from 'components/TodoTaskList';
 import { ListMock } from 'mock-data/TodoTaskList/TodotaskListMock';
+import { AppHeader } from 'components/AppHeader/AppHeader';
+import { AppRoutes } from 'routes/AppRoutes';
+import { usePageTitle } from 'providers/PageTitleProvider';
+import { Layout } from 'antd';
+import { AppContent, AppFooter } from './App.styled';
+
+const { Sider } = Layout;
 
 export const App = () => {
+  const { title } = usePageTitle();
   return (
-    <div className="App">
-      <StyledComponent>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload...
-        </p>
-        <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
+    <Layout>
+      <AppHeader pageTitle={title} />
+      <Layout>
+        <Sider />
+        <AppContent>
+          <AppRoutes />
+        </AppContent>
         <TodoTaskList todoTasks={ListMock.todoTasks} />
-      </StyledComponent>
-    </div>
+      </Layout>
+      <AppFooter />
+    </Layout>
   );
 };
