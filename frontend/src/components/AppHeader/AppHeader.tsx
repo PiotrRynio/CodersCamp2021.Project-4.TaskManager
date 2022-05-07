@@ -1,5 +1,6 @@
-import { AppHeaderWrapper, Logo } from './AppHeader.styled';
+import { AppHeaderWrapper } from './AppHeader.styled';
 import { PageHeader } from 'antd';
+import { Logo } from 'components';
 
 export interface AppHeaderProps {
   pageTitle?: string;
@@ -8,7 +9,7 @@ export interface AppHeaderProps {
 export const AppHeader = ({ pageTitle }: AppHeaderProps) => {
   return (
     <AppHeaderWrapper>
-      <Logo>Logo</Logo>
+      <Logo isWithoutLogoTyp={'full'} height={30} />
       <PageHeader title={pageTitle}></PageHeader>
     </AppHeaderWrapper>
   );
