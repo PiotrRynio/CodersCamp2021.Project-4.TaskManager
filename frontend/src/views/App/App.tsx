@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyledComponent } from './App.styled';
-import { TodoTaskList } from 'components/TodoTaskList/TodoTaskList';
+import { TodoTaskList } from 'components/TodoTaskList';
 import { ListMock } from 'mock-data/TodoTaskList/TodotaskListMock';
 
 export const App = () => {
