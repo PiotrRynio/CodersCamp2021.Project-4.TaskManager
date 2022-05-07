@@ -1,13 +1,13 @@
 import { List } from 'antd';
-import { TodoTaskProps } from './types';
+import { TodoTaskProps } from '../TodoTask/TodoTask';
 import { TodoTaskListProps } from './types';
 import { useTodoTasks } from './hook';
 import { TodoTaskListFooter } from './TodoTaskListFooter';
+import { TodoTask } from '../TodoTask/TodoTask';
+import { StyledList } from './index.styled';
 
 export const TodoTaskList = ({ todoTasks }: TodoTaskListProps) => {
   const { tasks, completedTaskVisible, handleCompleteTasks } = useTodoTasks(todoTasks);
-  console.log(tasks);
-
   return (
     <List
       header={<div>Header</div>}
@@ -19,9 +19,9 @@ export const TodoTaskList = ({ todoTasks }: TodoTaskListProps) => {
       }
       bordered
       dataSource={tasks}
-      renderItem={(item: TodoTaskProps) => (
+      renderItem={(task: TodoTaskProps) => (
         <List.Item>
-          <div>{item.text}</div>
+          <TodoTask {...task} />
         </List.Item>
       )}
     />

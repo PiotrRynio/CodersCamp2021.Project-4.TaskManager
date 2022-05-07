@@ -1,6 +1,4 @@
 import React from 'react';
-import { TodoTaskList } from 'components/TodoTaskList';
-import { ListMock } from 'mock-data/TodoTaskList/TodotaskListMock';
 import { AppHeader } from 'components/AppHeader/AppHeader';
 import { AppRoutes } from 'routes/AppRoutes';
 import { usePageTitle } from 'providers/PageTitleProvider';
@@ -19,7 +17,6 @@ export const App = () => {
         <AppContent>
           <AppRoutes />
         </AppContent>
-        <TodoTaskList todoTasks={ListMock.todoTasks} />
       </Layout>
       <AppFooter />
     </Layout>

@@ -1,6 +1,5 @@
-// import { TodoTaskListProps } from './types';
 import { useEffect, useState } from 'react';
-import { TodoTaskProps } from './types';
+import { TodoTaskProps } from '../TodoTask/TodoTask';
 
 export const useTodoTasks = (todoTasks: TodoTaskProps[]) => {
   const [tasks, setTasks] = useState<TodoTaskProps[]>([]);
@@ -12,6 +11,11 @@ export const useTodoTasks = (todoTasks: TodoTaskProps[]) => {
   };
 
   const handleCompleteTasks = () => {
+    if (completedTaskVisible) {
+      setIncompleteTasks();
+      setCompletedTaskVisible(false);
+      return;
+    }
     const completeTasks = todoTasks.filter((task) => task.isDone === true);
     setTasks((prevState) => {
       return [...prevState, ...completeTasks];

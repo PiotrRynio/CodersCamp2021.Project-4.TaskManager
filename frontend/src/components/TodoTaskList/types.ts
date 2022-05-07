@@ -1,10 +1,4 @@
-export type TodoTaskProps = {
-  text: string;
-  onStarClick(): void;
-  onDoneClick(): void;
-  isDone: boolean;
-  isImportant: boolean;
-};
+import { TodoTaskProps } from '../TodoTask/TodoTask';
 
 export type TodoTaskListProps = {
   todoTasks: TodoTaskProps[];

@@ -14,17 +14,6 @@ export const ListMock: TodoTaskListProps = {
       isImportant: false,
     },
     {
-      text: 'example text 2',
-      onStarClick: () => {
-        console.log('on start click');
-      },
-      onDoneClick: () => {
-        console.log('on done click');
-      },
-      isDone: true,
-      isImportant: true,
-    },
-    {
       text: 'example text 3',
       onStarClick: () => {
         console.log('on start click');
@@ -114,17 +103,6 @@ export const ListMock: TodoTaskListProps = {
     },
     {
       text: 'example text 11',
-      onStarClick: () => {
-        console.log('on start click');
-      },
-      onDoneClick: () => {
-        console.log('on done click');
-      },
-      isDone: false,
-      isImportant: false,
-    },
-    {
-      text: 'example text 12',
       onStarClick: () => {
         console.log('on start click');
       },
