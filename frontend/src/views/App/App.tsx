@@ -1,18 +1,24 @@
-import { StyledComponent } from './App.styled';
-import { TodoTask } from '../../components/TodoTask/TodoTask';
+import { AppHeader } from 'components/AppHeader/AppHeader';
+import { AppRoutes } from 'routes/AppRoutes';
+import { usePageTitle } from 'providers/PageTitleProvider';
+import { Layout } from 'antd';
+
+import { AppContent, AppFooter } from './App.styled';
+
+const { Sider } = Layout;
 
 export const App = () => {
+  const { title } = usePageTitle();
   return (
-    <div className="App">
-      <StyledComponent>
-        <TodoTask
-          text={'Jakiś przykładowy tekst'}
-          onStarClick={() => {}}
-          onDoneClick={() => {}}
-          isDone={false}
-          isImportant={false}
-        />
-      </StyledComponent>
-    </div>
+    <Layout>
+      <AppHeader pageTitle={title} />
+      <Layout>
+        <Sider />
+        <AppContent>
+          <AppRoutes />
+        </AppContent>
+      </Layout>
+      <AppFooter />
+    </Layout>
   );
 };
