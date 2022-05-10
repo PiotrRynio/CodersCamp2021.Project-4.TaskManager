@@ -1,13 +1,15 @@
-import { TodoTaskListFooterProps } from './types';
+import { TodoTaskListFooterProps } from './TodoTaskListFooterProps';
 import { StyledTodoTaskListFooter } from './index.styled';
 
 export const TodoTaskListFooter = ({
   completedTaskVisible,
-  handleCompleteTasks,
+  toggleTheVisibilityOfDoneTasks,
 }: TodoTaskListFooterProps) => {
   return (
-    <StyledTodoTaskListFooter onClick={handleCompleteTasks}>
-      <span>{completedTaskVisible ? 'Hide complete tasks' : 'Show complete tasks'}</span>
+    <StyledTodoTaskListFooter>
+      <button onClick={toggleTheVisibilityOfDoneTasks}>
+        {completedTaskVisible ? 'Hide complete tasks' : 'Show complete tasks'}
+      </button>
     </StyledTodoTaskListFooter>
   );
 };

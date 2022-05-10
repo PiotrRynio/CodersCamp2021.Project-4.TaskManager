@@ -10,7 +10,7 @@ export const useTodoTasks = (todoTasks: TodoTaskProps[]) => {
     setTasks(incompleteTasks);
   };
 
-  const handleCompleteTasks = () => {
+  const toggleTheVisibilityOfDoneTasks = () => {
     if (completedTaskVisible) {
       setIncompleteTasks();
       setCompletedTaskVisible(false);
@@ -27,5 +27,5 @@ export const useTodoTasks = (todoTasks: TodoTaskProps[]) => {
     setIncompleteTasks();
   }, []);
 
-  return { tasks, completedTaskVisible, handleCompleteTasks };
+  return { tasks, completedTaskVisible, toggleTheVisibilityOfDoneTasks };
 };
