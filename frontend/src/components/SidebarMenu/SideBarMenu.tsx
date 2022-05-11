@@ -1,32 +1,33 @@
 import { StyledSidebarMenu, StyledSidebarItem } from './SidebarMenu.styled';
-import * as AntdIcons from '@ant-design/icons';
+import { FileExclamationOutlined, ExclamationOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
+
+type iconTypes = 'FileExclamationOutlined' | 'ExclamationOutlined';
 
 interface itemProp {
   label: string;
   href: string;
-  icon: string;
+  icon: iconTypes;
 }
 
 interface itemsProp {
   items: itemProp[];
 }
 
+const customIcons = {
+  FileExclamationOutlined: <FileExclamationOutlined />,
+  ExclamationOutlined: <ExclamationOutlined />,
+};
+
 export const SidebarMenu = ({ items }: itemsProp) => {
-  return (
-    <StyledSidebarMenu>
-      {items.map((item) => {
-        const CustomIcon = (type: string) => {
-          // eslint-disable-next-line no-console
-          const AntdIcon = AntdIcons[type];
-          return <AntdIcon />;
-        };
-        return (
-          <StyledSidebarItem>
-            {CustomIcon(item?.icon)}
-            {item?.label}
-          </StyledSidebarItem>
-        );
-      })}
-    </StyledSidebarMenu>
-  );
+  const menuItems = items.map(({ label, icon, href }) => ({
+    key: label,
+    label: (
+      <Link to={href}>
+        {customIcons[icon]}
+        {label}
+      </Link>
+    ),
+  }));
+  return <StyledSidebarMenu items={menuItems} />;
 };
