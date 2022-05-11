@@ -3,7 +3,7 @@ import { StatusCodes } from 'http-status-codes';
 import { CommandPublisher } from '../../../../shared/Module/core/application/command/CommandBus';
 import { DomainEventPublisher } from '../../../../shared/Module/core/application/event/DomainEventBus';
 import { QueryPublisher } from '../../../../shared/Module/core/application/query/QueryBus';
-import { PostCreateTaskRequestBody } from './request/PostCreateTaskRequestBody,ts';
+import { PostCreateTaskRequestBody } from './request/PostCreateTaskRequestBody';
 import { AddTaskCommand } from '../../application/AddTaskCommand';
 import { Task } from '../../domain/Task';
 

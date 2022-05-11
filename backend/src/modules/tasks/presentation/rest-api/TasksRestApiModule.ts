@@ -3,7 +3,7 @@ import { DomainEventPublisher } from '../../../../shared/Module/core/application
 import { QueryPublisher } from '../../../../shared/Module/core/application/query/QueryBus';
 import { ModuleRestApi } from '../../../../shared/Module/presentation/rest-api/ModuleRestApi';
 import { SHORT_TASK_MODULE_PATH } from '../../constants';
-import { taskHandlingRouter } from './TasksRouter';
+import { taskRouter } from './TasksRouter';
 
 export function TasksRestApiModule(
   commandPublisher: CommandPublisher,
@@ -11,7 +11,7 @@ export function TasksRestApiModule(
   queryPublisher: QueryPublisher,
 ): ModuleRestApi {
   return {
-    router: taskHandlingRouter(commandPublisher, eventPublisher, queryPublisher),
+    router: taskRouter(commandPublisher, eventPublisher, queryPublisher),
     path: SHORT_TASK_MODULE_PATH,
   };
 }
