@@ -1,8 +1,17 @@
-import { StyledSidebarMenu, StyledSidebarItem } from './SidebarMenu.styled';
-import { FileExclamationOutlined, ExclamationOutlined } from '@ant-design/icons';
+import { StyledSidebarMenu } from './SidebarMenu.styled';
+import {
+  ExclamationOutlined,
+  BlockOutlined,
+  ContainerOutlined,
+  FundProjectionScreenOutlined,
+} from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
-type iconTypes = 'FileExclamationOutlined' | 'ExclamationOutlined';
+type iconTypes =
+  | 'ExclamationOutlined'
+  | 'BlockOutlined'
+  | 'ContainerOutlined'
+  | 'FundProjectionScreenOutlined';
 
 interface itemProp {
   label: string;
@@ -15,18 +24,22 @@ interface itemsProp {
 }
 
 const customIcons = {
-  FileExclamationOutlined: <FileExclamationOutlined />,
   ExclamationOutlined: <ExclamationOutlined />,
+  BlockOutlined: <BlockOutlined />,
+  ContainerOutlined: <ContainerOutlined />,
+  FundProjectionScreenOutlined: <FundProjectionScreenOutlined />,
 };
 
 export const SidebarMenu = ({ items }: itemsProp) => {
   const menuItems = items.map(({ label, icon, href }) => ({
     key: label,
     label: (
-      <Link to={href}>
-        {customIcons[icon]}
-        {label}
-      </Link>
+      <div>
+        <Link to={href}>
+          {customIcons[icon]}
+          <span>{label}</span>
+        </Link>
+      </div>
     ),
   }));
   return <StyledSidebarMenu items={menuItems} />;

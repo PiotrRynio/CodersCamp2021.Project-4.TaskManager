@@ -18,9 +18,9 @@ export const App = () => {
           <SidebarMenu
             items={[
               { label: 'Priority tasks', href: '/', icon: 'ExclamationOutlined' },
-              { label: 'Ungrouped', href: '/statistics', icon: 'FileExclamationOutlined' },
-              { label: 'Projects', href: '/projects', icon: 'FileExclamationOutlined' },
-              { label: 'Statistic', href: '/statistics', icon: 'FileExclamationOutlined' },
+              { label: 'Ungrouped', href: '/ungrouped', icon: 'BlockOutlined' },
+              { label: 'Projects', href: '/projects', icon: 'ContainerOutlined' },
+              { label: 'Statistic', href: '/statistics', icon: 'FundProjectionScreenOutlined' },
             ]}
           />
         </Sider>
