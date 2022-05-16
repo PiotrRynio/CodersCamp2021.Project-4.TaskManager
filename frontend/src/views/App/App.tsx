@@ -2,6 +2,7 @@ import { AppHeader } from 'components/AppHeader/AppHeader';
 import { AppRoutes } from 'routes/AppRoutes';
 import { usePageTitle } from 'providers/PageTitleProvider';
 import { Layout } from 'antd';
+import { Counter } from '../../components/Counter/Counter';
 
 import { AppContent, AppFooter } from './App.styled';
 
@@ -15,6 +16,7 @@ export const App = () => {
       <Layout>
         <Sider />
         <AppContent>
+          <Counter />
           <AppRoutes />
         </AppContent>
       </Layout>
