@@ -1,14 +1,19 @@
 import { ModuleCore } from '../../shared/Module/core/ModuleCore';
 import { SendEmail } from './application/SendEmailCommand';
-import { SendEmailCommandHandler } from './application/SenEmailCommandHandler';
-import { EmailSender } from './application/EmailSender';
+import { SendEmailCommandHandler } from './application/SendEmailCommandHandler';
+import { CommonModuleCoreProps } from 'shared/Module/CommonModuleCoreProps';
 
-export function SendEmailModuleCore(emailSender: EmailSender): ModuleCore {
+export function SendEmailModuleCore({
+  eventPublisher,
+  commandPublisher,
+  currentTimeProvider,
+  entityIdGenerator,
+}: CommonModuleCoreProps): ModuleCore {
   return {
     commandHandlers: [
       {
         commandType: SendEmail,
-        handler: new SendEmailCommandHandler(emailSender),
+        handler: new SendEmailCommandHandler(eventPublisher, currentTimeProvider, entityIdGenerator),
       },
     ],
     eventHandlers: [],
