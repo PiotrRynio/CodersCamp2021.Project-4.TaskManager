@@ -2,8 +2,8 @@ import { ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'assets';
 import { GlobalStyles } from 'assets';
-import { PageTitleProvider } from '../providers/PageTitleProvider';
-import { store } from '../redux/store';
+import { PageTitleProvider } from './PageTitleProvider';
+import { store } from 'redux';
 import { Provider as ReduxToolkitProvider } from 'react-redux';
 import 'antd/dist/antd.min.css';
 
