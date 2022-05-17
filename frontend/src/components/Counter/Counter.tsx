@@ -1,5 +1,5 @@
-import { decrementCounter, incrementCounter } from 'store/slices';
-import { useAppDispatch, useAppSelector } from 'store/hooks/hooks';
+import { decrementCounter, incrementCounter } from 'states/slices';
+import { useAppDispatch, useAppSelector } from 'states/hooks/hooks';
 
 export function Counter() {
   // The `state` arg is correctly typed as `RootState` already

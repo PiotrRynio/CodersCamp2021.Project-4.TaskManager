@@ -1,4 +1,4 @@
-import { useGetPokemonByNameQuery } from 'store/services/pokemon';
+import { useGetPokemonByNameQuery } from 'states/services';
 
 export const Pokemon = () => {
   // Using a query hook automatically fetches data and returns query values
