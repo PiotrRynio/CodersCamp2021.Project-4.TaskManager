@@ -3,6 +3,7 @@ import { AppRoutes } from 'routes/AppRoutes';
 import { usePageTitle } from 'providers/PageTitleProvider';
 import { Layout } from 'antd';
 import { Counter } from '../../components/Counter/Counter';
+import { Pokemon } from '../../components/Pokemon/Pokemon';
 
 import { AppContent, AppFooter } from './App.styled';
 
@@ -17,6 +18,7 @@ export const App = () => {
         <Sider />
         <AppContent>
           <Counter />
+          <Pokemon />
           <AppRoutes />
         </AppContent>
       </Layout>

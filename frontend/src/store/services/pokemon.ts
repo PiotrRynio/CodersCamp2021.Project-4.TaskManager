@@ -7,6 +7,12 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 type Pokemon = {
   name: string;
   url: string;
+  species: {
+    name: string;
+  };
+  sprites: {
+    front_shiny: string;
+  };
 };
 
 export const pokemonApi = createApi({
