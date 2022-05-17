@@ -1,4 +1,4 @@
-import { decrementCounter, incrementCounter } from 'store';
+import { decrementCounter, incrementCounter } from 'store/slices';
 import { useAppDispatch, useAppSelector } from 'store/hooks/hooks';
 
 export function Counter() {
