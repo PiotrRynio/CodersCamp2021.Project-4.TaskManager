@@ -20,17 +20,15 @@ export const Modal = ({
   children,
 }: ModalProps) => {
   return (
-    <>
-      <StyledModal
-        title={title}
-        visible={isVisible}
-        okText={submitButtonLabel ?? 'submit'}
-        cancelText={cancelButtonLabel ?? 'cancel'}
-        onOk={(e) => onSubmit(e)}
-        onCancel={() => onCancel()}
-      >
-        {children}
-      </StyledModal>
-    </>
+    <StyledModal
+      title={title}
+      visible={isVisible}
+      okText={submitButtonLabel ?? 'submit'}
+      cancelText={cancelButtonLabel ?? 'cancel'}
+      onOk={(e) => onSubmit(e)}
+      onCancel={() => onCancel()}
+    >
+      {children}
+    </StyledModal>
   );
 };
