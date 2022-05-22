@@ -1,7 +1,6 @@
-import { List } from 'antd';
 import styled from 'styled-components';
 
-export const StyledList = styled(List)`
+export const StyledList = styled.div`
   background-color: #fff;
 `;
 
