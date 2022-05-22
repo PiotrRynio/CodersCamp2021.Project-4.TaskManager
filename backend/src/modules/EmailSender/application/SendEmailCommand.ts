@@ -1,4 +1,4 @@
-export class SendEmail {
+export class SendEmailCommand {
   readonly emailAddress: string;
   readonly subject: string;
   readonly htmlContent: string;
