@@ -9,5 +9,5 @@ export interface CommonModuleCoreProps {
   commandPublisher: CommandPublisher;
   currentTimeProvider: CurrentTimeProvider;
   entityIdGenerator: EntityIdGenerator;
-  repository: EmailListRepository;
+  repository: any;
 }
