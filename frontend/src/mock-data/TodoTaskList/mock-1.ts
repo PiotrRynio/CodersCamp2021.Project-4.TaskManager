@@ -24,6 +24,7 @@ export const todoTaskListMock: TodoTaskListProps = {
       isDone: true,
       isImportant: false,
     },
+
     {
       text: 'example text 4',
       onStarClick: () => {

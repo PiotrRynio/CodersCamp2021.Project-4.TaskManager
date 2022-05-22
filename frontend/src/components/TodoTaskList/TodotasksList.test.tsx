@@ -1,22 +1,22 @@
 import React from 'react';
 import { render, screen } from 'test-utils';
 import { TodoTaskList } from './TodoTaskList';
-import { TodoTask } from '../TodoTask/TodoTask';
+// import { TodoTask } from '../TodoTask/TodoTask';
 
 describe('TodoTaskList', () => {
   const taskTodoListMock = [
     {
       text: 'example text 1',
-      onStarClick: jest.fn(),
-      onDoneClick: jest.fn(),
-      isDone: true,
+      onStarClick: () => {},
+      onDoneClick: () => {},
+      isDone: false,
       isImportant: false,
     },
     {
       text: 'example text 3',
-      onStarClick: jest.fn(),
-      onDoneClick: jest.fn(),
-      isDone: true,
+      onStarClick: () => {},
+      onDoneClick: () => {},
+      isDone: false,
       isImportant: false,
     },
   ];
