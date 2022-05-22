@@ -7,13 +7,19 @@ export function todoTasksModuleCore({
   eventPublisher,
   commandPublisher,
   currentTimeProvider,
+  repository,
   entityIdGenerator,
 }: CommonModuleCoreProps): ModuleCore {
   return {
     commandHandlers: [
       {
         commandType: AddTaskCommand,
-        handler: new AddTaskCommandHandler(commandPublisher, currentTimeProvider, entityIdGenerator),
+        handler: new AddTaskCommandHandler(
+          eventPublisher,
+          currentTimeProvider,
+          repository,
+          entityIdGenerator,
+        ),
       },
     ],
     eventHandlers: [],
