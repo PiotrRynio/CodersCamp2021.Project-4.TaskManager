@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'test-utils';
-import { TodoTaskList } from './index';
+import { TodoTaskList } from './TodoTaskList';
 import { TodoTask } from '../TodoTask/TodoTask';
 
 describe('TodoTaskList', () => {

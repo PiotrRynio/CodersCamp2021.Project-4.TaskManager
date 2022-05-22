@@ -2,9 +2,8 @@ import { List } from 'antd';
 import { TodoTaskProps } from '../TodoTask/TodoTask';
 import { TodoTaskListProps } from './TodoTaskProps';
 import { useTodoTasks } from './useTodoTasks';
-import { TodoTaskListFooter } from './TodoTaskListFooter';
 import { TodoTask } from '../TodoTask/TodoTask';
-import { StyledList } from './index.styled';
+import { StyledList, StyledTodoTaskListFooter } from './TodoTaskList.styled';
 
 export const TodoTaskList = ({ todoTasks }: TodoTaskListProps) => {
   const { tasks, completedTaskVisible, toggleTheVisibilityOfDoneTasks } = useTodoTasks(todoTasks);
@@ -13,10 +12,11 @@ export const TodoTaskList = ({ todoTasks }: TodoTaskListProps) => {
       <List
         header={<div>Header</div>}
         footer={
-          <TodoTaskListFooter
-            completedTaskVisible={completedTaskVisible}
-            toggleTheVisibilityOfDoneTasks={toggleTheVisibilityOfDoneTasks}
-          />
+          <StyledTodoTaskListFooter>
+            <button onClick={toggleTheVisibilityOfDoneTasks}>
+              {completedTaskVisible ? 'Hide complete tasks' : 'Show complete tasks'}
+            </button>
+          </StyledTodoTaskListFooter>
         }
         bordered
         dataSource={tasks}
