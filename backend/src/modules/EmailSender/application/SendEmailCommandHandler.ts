@@ -21,6 +21,8 @@ export class SendEmailCommandHandler implements CommandHandler<SendEmailCommand>
       date: this.currentTimeProvider(),
     });
 
+    // TODO: Użyj "commandPublisher" do opublikowania eventu. Aktualnie jest on wyciągany, ale nie jest publikowany. Zerknij jak dzieje się te we wzorze.
+
     return CommandResult.success();
   }
 }

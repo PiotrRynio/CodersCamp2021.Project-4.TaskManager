@@ -1,15 +1,15 @@
 import { ModuleCore } from '../../shared/Module/core/ModuleCore';
-import { CommonModuleCoreProps } from 'shared/Module/CommonModuleCoreProps';
 import { AddTaskCommand } from './application/AddTaskCommand';
 import { AddTaskCommandHandler } from './application/AddTaskCommandHandler';
+import { CommonModuleCoreProps } from '../../shared/Module/CommonModuleCoreProps';
+import { TaskListRepository } from './application/TaskListRepository';
 
 export function todoTasksModuleCore({
   eventPublisher,
-  commandPublisher,
   currentTimeProvider,
-  repository,
   entityIdGenerator,
-}: CommonModuleCoreProps): ModuleCore {
+  repository,
+}: CommonModuleCoreProps & { repository: TaskListRepository }): ModuleCore {
   return {
     commandHandlers: [
       {
