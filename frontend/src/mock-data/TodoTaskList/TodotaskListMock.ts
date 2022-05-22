@@ -1,6 +1,6 @@
 import { TodoTaskListProps } from '../../components/TodoTaskList/TodoTaskProps';
 
-export const ListMock: TodoTaskListProps = {
+export const todoTaskListMock: TodoTaskListProps = {
   todoTasks: [
     {
       text: 'example text 1',
