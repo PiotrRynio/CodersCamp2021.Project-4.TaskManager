@@ -2,14 +2,11 @@ import { render } from '@testing-library/react';
 import { ReactNode } from 'react';
 import { MemoryRouter } from 'react-router';
 import { AppProviders } from 'providers/AppProviders';
-import { PageTitleProvider } from 'providers/PageTitleProvider';
 
 const AllTheProviders = ({ children }: { children: ReactNode }) => {
   return (
     <MemoryRouter>
-      <AppProviders>
-        <PageTitleProvider>{children}</PageTitleProvider>
-      </AppProviders>
+      <AppProviders>{children}</AppProviders>
     </MemoryRouter>
   );
 };

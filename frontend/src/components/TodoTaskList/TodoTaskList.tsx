@@ -1,15 +1,15 @@
-import { List } from 'antd';
-import { TodoTaskProps } from '../TodoTask/TodoTask';
+// import { List } from 'antd';
+// import { TodoTaskProps } from '../TodoTask/TodoTask';
 import { TodoTaskListProps } from './TodoTaskProps';
 import { useTodoTasks } from './useTodoTasks';
-import { TodoTask } from '../TodoTask/TodoTask';
+// import { TodoTask } from '../TodoTask/TodoTask';
 import { StyledList, StyledTodoTaskListFooter } from './TodoTaskList.styled';
 
 export const TodoTaskList = ({ todoTasks }: TodoTaskListProps) => {
   const { tasks, completedTaskVisible, toggleTheVisibilityOfDoneTasks } = useTodoTasks(todoTasks);
   return (
     <StyledList>
-      <List
+      {/* <List
         header={<div>Header</div>}
         footer={
           <StyledTodoTaskListFooter>
@@ -25,7 +25,7 @@ export const TodoTaskList = ({ todoTasks }: TodoTaskListProps) => {
             <TodoTask {...task} />
           </List.Item>
         )}
-      />
+      /> */}
     </StyledList>
   );
 };
