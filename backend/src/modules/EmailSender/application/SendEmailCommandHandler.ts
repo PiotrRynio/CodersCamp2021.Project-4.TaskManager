@@ -5,7 +5,8 @@ import { DomainEventPublisher } from 'shared/Module/core/application/event/Domai
 import { CurrentTimeProvider } from 'shared/Module/core/CurrentTimeProvider';
 import { EntityIdGenerator } from 'shared/Module/core/application/EntityIdGenerator';
 import { SendEmailCommand } from './SendEmailCommand';
-import { EmailSender } from './EmailSender';
+import { EmailSender } from '../domain/EmailSender';
+import { sendEmail } from '../domain/EmailSender';
 
 export class SendEmailCommandHandler implements CommandHandler<SendEmailCommand> {
   constructor(
@@ -15,11 +16,23 @@ export class SendEmailCommandHandler implements CommandHandler<SendEmailCommand>
   ) {}
 
   async execute(command: SendEmailCommand): Promise<CommandResult> {
-    // await this.emailSender.sendAnEmail({
-    //   emailAddress: command.emailAddress,
-    //   subject: command.subject,
-    //   htmlContent: command.htmlContent,
-    // });
+    const { events } = sendEmail({
+      emailAddress: command.emailAddress,
+      subject: command.subject,
+      htmlContent: command.htmlContent,
+      date: this.currentTimeProvider(),
+    });
+
+    // const { state, events } = registerNewRecord(
+    //   this.currentTimeProvider(),
+    //   new UserEmailId(this.entityIdGenerator.generate()),
+    //   { userEmail: new EmailAddress(command.userEmail) },
+    // );
+
+    // await this.repository.save(state);
+    // const allRegistrations = await this.repository.findAll();
+    // this.eventPublisher.publishAll(events);
+    // return CommandResult.success(allRegistrations);
 
     return CommandResult.success();
   }

@@ -22,7 +22,7 @@ export function SendEmailModuleCore({
     eventHandlers: [
       {
         eventType: TaskWasAddedEvent,
-        handler: new TaskWasAddedEventHandler(eventPublisher, currentTimeProvider, entityIdGenerator),
+        handler: new TaskWasAddedEventHandler(commandPublisher, currentTimeProvider, entityIdGenerator),
       },
     ],
     queryHandlers: [],
