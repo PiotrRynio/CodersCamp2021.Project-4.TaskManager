@@ -15,15 +15,27 @@ export class Task {
   }
 }
 
-export function addNewTask(currentTime: Date, command: { userId: UserId }): DomainCommandResult<Task> {
+export function addNewTask({
+  currentTime,
+  command,
+}: {
+  currentTime: Date;
+  command: {
+    taskName: string;
+    userId: UserId;
+    taskId: TaskId;
+  };
+}): DomainCommandResult<Task> {
   const newState = new Task({
     userId: command.userId.raw,
+    taskName: command.taskName,
+    taskId: command.taskId.raw,
   });
 
-  const newRegistrationWasSavedEvent = new NewTaskWasAddedEvent({
+  const newTaskWasAddedEvent = new NewTaskWasAddedEvent({
     ...newState,
     occurredAt: currentTime,
   });
 
-  return { state: newState, events: [NewTaskWasAddedEvent] };
+  return { state: newState, events: [newTaskWasAddedEvent] };
 }
