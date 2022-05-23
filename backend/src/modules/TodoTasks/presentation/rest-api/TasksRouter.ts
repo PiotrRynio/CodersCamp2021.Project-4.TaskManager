@@ -6,7 +6,7 @@ import { QueryPublisher } from '../../../../shared/Module/core/application/query
 import { PostCreateTaskRequestBody } from './request/PostCreateTaskRequestBody';
 import { AddTaskCommand } from '../../application/AddTaskCommand';
 import { Task } from '../../domain/Task';
-import { TaskResponse } from './response/TaskResponse';
+import { TaskResponseDto } from './response/TaskResponseDto';
 import { GetAllUserTasksRequestBody } from './request/GetAllUserTasksRequestBody';
 import { FindAllTasksQuery, FindAllTasksQueryResult } from '../../application/FindAllTasksQuery';
 import { LOCAL_PATH } from '../../constants';
@@ -32,8 +32,8 @@ export function taskRouter(
       (state: Task[]) => {
         const responseBody = {
           taskList: state.map(
-            ({ taskName, userId }): TaskResponse => ({
-              taskName: taskName,
+            ({ taskName, userId }): TaskResponseDto => ({
+              taskName,
               userId,
             }),
           ),
@@ -59,8 +59,8 @@ export function taskRouter(
   return router;
 }
 
-const toTasks = ({ userId, taskName }: Task): TaskResponse =>
-  new TaskResponse({
+const toTasks = ({ userId, taskName }: Task): TaskResponseDto =>
+  new TaskResponseDto({
     userId,
     taskName,
   });

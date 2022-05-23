@@ -1,4 +1,4 @@
-export class TaskResponse {
+export class TaskResponseDto {
   readonly userId: string;
   readonly taskName: string;
 
