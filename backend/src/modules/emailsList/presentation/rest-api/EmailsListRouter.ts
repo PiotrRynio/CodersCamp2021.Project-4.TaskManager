@@ -9,6 +9,7 @@ import { EmailsList } from '../../domain/EmailsList';
 import { PostCreateEmailRequestBody } from './request/PostCreateEmailRequestBody';
 import { FindAllEmailsQuery, FindAllEmailsQueryResult } from '../../application/FindAllEmailsQuery';
 import { GetAllEmailsListRequestBody } from './request/GetAllEmailsListRequestBody';
+import { LOCAL_PATH } from '../../constants';
 
 export function emailsListRouter(
   commandPublisher: CommandPublisher,
@@ -50,8 +51,9 @@ export function emailsListRouter(
   };
 
   const router = express.Router();
-  router.get('', getAllEmails);
-  router.post('', createEmail);
+  router.get(LOCAL_PATH, getAllEmails);
+  router.post(LOCAL_PATH, createEmail);
+
   return router;
 }
 

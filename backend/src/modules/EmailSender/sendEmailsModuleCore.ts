@@ -16,7 +16,7 @@ export function SendEmailModuleCore({
     commandHandlers: [
       {
         commandType: SendEmailCommand,
-        handler: new SendEmailCommandHandler(commandPublisher, currentTimeProvider, entityIdGenerator),
+        handler: new SendEmailCommandHandler(eventPublisher, currentTimeProvider, entityIdGenerator),
       },
     ],
     eventHandlers: [

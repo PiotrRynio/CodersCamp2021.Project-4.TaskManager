@@ -9,6 +9,7 @@ import { Task } from '../../domain/Task';
 import { TaskResponse } from './response/TaskResponse';
 import { GetAllUserTasksRequestBody } from './request/GetAllUserTasksRequestBody';
 import { FindAllTasksQuery, FindAllTasksQueryResult } from '../../application/FindAllTasksQuery';
+import { LOCAL_PATH } from '../../constants';
 
 export function taskRouter(
   commandPublisher: CommandPublisher,
@@ -47,12 +48,13 @@ export function taskRouter(
     const requestBody: GetAllUserTasksRequestBody = request.body;
 
     const queryResult = await queryPublisher.execute<FindAllTasksQueryResult>(new FindAllTasksQuery());
+
     return response.status(StatusCodes.OK).json({ taskList: queryResult.map(toTasks) });
   };
 
   const router = express.Router();
-  router.get('', getAllUserTasks);
-  router.post('', createTask);
+  router.get(LOCAL_PATH, getAllUserTasks);
+  router.post(LOCAL_PATH, createTask);
 
   return router;
 }

@@ -72,6 +72,7 @@ export const app = async (
   initializeModuleCores(commandBus, eventBus, queryBus, modulesCores);
 
   const modulesRestApis: ModuleRestApi[] = modules.map((module) => module.restApi).filter(isDefined);
+
   const restApiServer = restApiExpressServer(modulesRestApis);
 
   return { restApiServer };
