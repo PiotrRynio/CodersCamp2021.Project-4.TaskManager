@@ -6,6 +6,9 @@ import { QueryPublisher } from '../../../../shared/Module/core/application/query
 import { PostCreateTaskRequestBody } from './request/PostCreateTaskRequestBody';
 import { AddTaskCommand } from '../../application/AddTaskCommand';
 import { Task } from '../../domain/Task';
+import { TaskResponse } from './response/TaskResponse';
+import { GetAllUserTasksRequestBody } from './request/GetAllUserTasksRequestBody';
+import { FindAllTasksQuery, FindAllTasksQueryResult } from 'modules/TodoTasks/application/FindAllTasksQuery';
 
 export function taskRouter(
   commandPublisher: CommandPublisher,
@@ -24,12 +27,38 @@ export function taskRouter(
       }),
     );
 
-    /*    return commandResult.process((state: Task[]) => {
-              const responseBody = {};
-
-            }*/
+    return commandResult.process(
+      (state: Task[]) => {
+        const responseBody = {
+          taskList: state.map(
+            ({ taskName, userId }): TaskResponse => ({
+              taskName: taskName,
+              userId,
+            }),
+          ),
+        };
+        return response.status(StatusCodes.CREATED).json(responseBody);
+      },
+      (failureReason) => response.status(StatusCodes.BAD_REQUEST).json({ message: failureReason.message }),
+    );
   };
+
+  const getAllUserTasks = async (request: Request, response: Response) => {
+    const requestBody: GetAllUserTasksRequestBody = request.body;
+
+    const queryResult = await queryPublisher.execute<FindAllTasksQueryResult>(new FindAllTasksQuery());
+    return response.status(StatusCodes.OK).json({ taskList: queryResult.map(toTasks) });
+  };
+
   const router = express.Router();
+  router.get('', getAllUserTasks);
+  router.post('', createTask);
 
   return router;
 }
+
+const toTasks = ({ userId, taskName }: Task): TaskResponse =>
+  new TaskResponse({
+    userId,
+    taskName,
+  });

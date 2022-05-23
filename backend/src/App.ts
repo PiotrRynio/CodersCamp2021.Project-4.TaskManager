@@ -23,6 +23,9 @@ import { connectToMongoDb } from './shared/Module/infrastructure/repository/conn
 import { MongoEmailsListRepository } from './modules/emailsList/infrastructure/mongo/MongoEmailsListRepository';
 import { EmailsListRestApiModule } from './modules/emailsList/presentation/rest-api/EmailsListRestApiModule';
 import { EmailsListModuleCore } from './modules/emailsList/EmailsListModuleCore';
+import { InMemoryTasksRepository } from 'modules/TodoTasks/infrastructure/inMemory/InMemoryTasksRepository';
+import { todoTasksModuleCore } from 'modules/TodoTasks/todoTasksModuleCore';
+import { TasksRestApiModule } from 'modules/TodoTasks/presentation/rest-api/TasksRestApiModule';
 
 config();
 
@@ -39,19 +42,31 @@ export const app = async (
 ): Promise<App> => {
   await connectToMongoDb();
 
-  const repository = new MongoEmailsListRepository();
+  const emailListRepository = new MongoEmailsListRepository();
   const emailsListModule: Module = {
     core: EmailsListModuleCore({
       eventPublisher: eventBus,
       commandPublisher: commandBus,
       currentTimeProvider: currentTimeProvider,
       entityIdGenerator,
-      repository,
+      repository: emailListRepository,
     }),
     restApi: EmailsListRestApiModule(commandBus, eventBus, queryBus),
   };
 
-  const modules: Module[] = [emailsListModule].filter(isDefined);
+  const todoTaskRepository = new InMemoryTasksRepository();
+  const todoTaskListModule: Module = {
+    core: todoTasksModuleCore({
+      eventPublisher: eventBus,
+      commandPublisher: commandBus,
+      currentTimeProvider: currentTimeProvider,
+      entityIdGenerator,
+      repository: todoTaskRepository,
+    }),
+    restApi: TasksRestApiModule(commandBus, eventBus, queryBus),
+  };
+
+  const modules: Module[] = [emailsListModule, todoTaskListModule].filter(isDefined);
 
   const modulesCores: ModuleCore[] = modules.map((module) => module.core);
   initializeModuleCores(commandBus, eventBus, queryBus, modulesCores);

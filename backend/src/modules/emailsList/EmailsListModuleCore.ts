@@ -4,6 +4,7 @@ import { AddEmailCommandHandler } from './application/AddEmailCommandHandler';
 import { FindAllEmailsQueryHandler } from './application/FindAllEmailsQueryHandler';
 import { FindAllEmailsQuery } from './application/FindAllEmailsQuery';
 import { CommonModuleCoreProps } from '../../shared/Module/CommonModuleCoreProps';
+import { EmailListRepository } from './application/EmailListRepository';
 
 export function EmailsListModuleCore({
   eventPublisher,
@@ -11,7 +12,7 @@ export function EmailsListModuleCore({
   currentTimeProvider,
   entityIdGenerator,
   repository,
-}: CommonModuleCoreProps): ModuleCore {
+}: CommonModuleCoreProps & { repository: EmailListRepository }): ModuleCore {
   return {
     commandHandlers: [
       {
