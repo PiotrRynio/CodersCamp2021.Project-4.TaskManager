@@ -8,7 +8,7 @@ import { AddTaskCommand } from '../../application/AddTaskCommand';
 import { Task } from '../../domain/Task';
 import { TaskResponse } from './response/TaskResponse';
 import { GetAllUserTasksRequestBody } from './request/GetAllUserTasksRequestBody';
-import { FindAllTasksQuery, FindAllTasksQueryResult } from 'modules/TodoTasks/application/FindAllTasksQuery';
+import { FindAllTasksQuery, FindAllTasksQueryResult } from '../../application/FindAllTasksQuery';
 
 export function taskRouter(
   commandPublisher: CommandPublisher,

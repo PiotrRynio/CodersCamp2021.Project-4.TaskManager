@@ -3,7 +3,7 @@ import { DomainEventPublisher } from '../../../../shared/Module/core/application
 import { QueryPublisher } from '../../../../shared/Module/core/application/query/QueryBus';
 import { ModuleRestApi } from '../../../../shared/Module/presentation/rest-api/ModuleRestApi';
 import { emailsListRouter } from './EmailsListRouter';
-import { SHORT_EMAILS_LIST_MODULE_PATH } from '../../constants';
+import { FULL_EMAILS_LIST_MODULE_PATH } from '../../constants';
 
 export function EmailsListRestApiModule(
   commandPublisher: CommandPublisher,
@@ -12,6 +12,6 @@ export function EmailsListRestApiModule(
 ): ModuleRestApi {
   return {
     router: emailsListRouter(commandPublisher, eventPublisher, queryPublisher),
-    path: SHORT_EMAILS_LIST_MODULE_PATH,
+    path: FULL_EMAILS_LIST_MODULE_PATH,
   };
 }
