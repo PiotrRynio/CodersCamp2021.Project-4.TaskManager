@@ -23,9 +23,9 @@ import { connectToMongoDb } from './shared/Module/infrastructure/repository/conn
 import { MongoEmailsListRepository } from './modules/emailsList/infrastructure/mongo/MongoEmailsListRepository';
 import { EmailsListRestApiModule } from './modules/emailsList/presentation/rest-api/EmailsListRestApiModule';
 import { EmailsListModuleCore } from './modules/emailsList/EmailsListModuleCore';
-import { InMemoryTasksRepository } from 'modules/TodoTasks/infrastructure/inMemory/InMemoryTasksRepository';
-import { todoTasksModuleCore } from 'modules/TodoTasks/todoTasksModuleCore';
-import { TasksRestApiModule } from 'modules/TodoTasks/presentation/rest-api/TasksRestApiModule';
+import { InMemoryTasksRepository } from './modules/TodoTasks/infrastructure/inMemory/InMemoryTasksRepository';
+import { todoTasksModuleCore } from './modules/TodoTasks/todoTasksModuleCore';
+import { TasksRestApiModule } from './modules/TodoTasks/presentation/rest-api/TasksRestApiModule';
 
 config();
 

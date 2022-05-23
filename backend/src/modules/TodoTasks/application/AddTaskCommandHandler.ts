@@ -8,13 +8,13 @@ import { addNewTask } from '../domain/Task';
 import { UserId } from '../domain/valueObjects/UserId';
 import { TaskId } from '../domain/valueObjects/TaskId';
 import { DomainEventPublisher } from '../../../shared/Module/core/application/event/DomainEventBus';
-import { TaskListRepository } from './TaskListRepository';
+import { TaskRepository } from './TaskRepository';
 
 export class AddTaskCommandHandler implements CommandHandler<AddTaskCommand> {
   constructor(
     private readonly eventPublisher: DomainEventPublisher,
     private readonly currentTimeProvider: CurrentTimeProvider,
-    private readonly repository: TaskListRepository,
+    private readonly repository: TaskRepository,
     private readonly entityIdGenerator: EntityIdGenerator,
   ) {}
 
@@ -28,8 +28,8 @@ export class AddTaskCommandHandler implements CommandHandler<AddTaskCommand> {
       },
     });
 
-    await this.repository.save(state);
-    const allTodoTask = await this.repository.findAll();
+    await this.repository.addTask(state);
+    const allTodoTask = await this.repository.findAllTasks();
     this.eventPublisher.publishAll(events);
 
     return CommandResult.success(allTodoTask);
