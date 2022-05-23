@@ -1,8 +1,9 @@
-import { Typography, Col } from 'antd';
+import { Typography, Col, Row } from 'antd';
 import { IconButton } from './IconButton/IconButton';
 import { StyledRow } from './TodoTask.styled';
 
 export type TodoTaskProps = {
+  id: string;
   text: string;
   onStarClick(): void;
   onDoneClick(): void;
@@ -12,7 +13,7 @@ export type TodoTaskProps = {
 
 export const TodoTask = ({ text, onDoneClick, isDone, isImportant, onStarClick }: TodoTaskProps) => {
   return (
-    <StyledRow isDone={isDone} wrap={false} align={'middle'} gutter={[16, 16]}>
+    <StyledRow isDone={isDone}>
       <Col flex={'none'}>
         <IconButton onClick={onDoneClick} variant={'check'} isOn={isDone} />
       </Col>

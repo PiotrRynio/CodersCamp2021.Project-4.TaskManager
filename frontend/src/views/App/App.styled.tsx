@@ -4,8 +4,6 @@ import { Layout } from 'antd';
 const { Content, Footer } = Layout;
 
 export const AppFooter = styled(Footer)`
-  position: fixed;
-  bottom: 0;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.secondary};
 `;

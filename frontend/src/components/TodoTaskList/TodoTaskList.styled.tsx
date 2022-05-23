@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface StyledRowProps {
+  isDone: boolean;
+}
+
 export const StyledList = styled.div`
   background-color: #fff;
 `;
@@ -10,4 +14,10 @@ export const StyledTodoTaskListFooter = styled.footer`
   text-transform: uppercase;
   text-align: center;
   cursor: pointer;
+`;
+
+export const StyledRow = styled.div<StyledRowProps>`
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: ${({ isDone }) => (isDone ? '#6a6a6a' : '#dadada')};
 `;

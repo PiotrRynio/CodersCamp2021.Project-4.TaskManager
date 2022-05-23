@@ -10,9 +10,11 @@ export const TodoList = () => {
     setTitle('To Do List');
   }, []);
 
+  const { todoTasks } = todoTaskListMock;
+
   return (
     <>
-      <TodoTaskList todoTasks={todoTaskListMock.todoTasks} />
+      <TodoTaskList todoTasks={todoTasks} />
     </>
   );
 };
