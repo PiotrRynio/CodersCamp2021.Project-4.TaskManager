@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { usePageTitle } from 'providers/PageTitleProvider';
+import { TodoTaskList } from 'components/TodoTaskList/TodoTaskList';
+import { todoTaskListMock } from 'mock-data/TodoTaskList/todoTaskListMock';
 
 export const TodoList = () => {
   const { setTitle } = usePageTitle();
@@ -8,5 +10,11 @@ export const TodoList = () => {
     setTitle('To Do List');
   }, []);
 
-  return <>To Do List</>;
+  const { todoTasks } = todoTaskListMock;
+
+  return (
+    <>
+      <TodoTaskList todoTasks={todoTasks} />
+    </>
+  );
 };

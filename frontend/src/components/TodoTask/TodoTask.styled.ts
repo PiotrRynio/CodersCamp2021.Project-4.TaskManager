@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { Row, RowProps } from 'antd';
 
-interface StyledRowProps extends RowProps {
+interface StyledRowProps {
   isDone: boolean;
 }
 
-export const StyledRow = styled(Row)<StyledRowProps>`
+export const StyledRow = styled.div<StyledRowProps>`
+  display: flex;
   background: ${({ theme, isDone }) => (isDone ? theme.colors.doneTaskBackground : theme.colors.transparent)};
 `;
