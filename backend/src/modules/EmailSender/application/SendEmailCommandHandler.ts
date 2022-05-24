@@ -1,16 +1,14 @@
 import { CommandResult } from '../../../shared/Module/core/application/command/CommandResult';
 import { CommandHandler } from '../../../shared/Module/core/application/command/CommandHandler';
-import { CommandPublisher } from 'shared/Module/core/application/command/CommandBus';
-import { DomainEventPublisher } from 'shared/Module/core/application/event/DomainEventBus';
 import { CurrentTimeProvider } from 'shared/Module/core/CurrentTimeProvider';
 import { EntityIdGenerator } from 'shared/Module/core/application/EntityIdGenerator';
 import { SendEmailCommand } from './SendEmailCommand';
-import { EmailSender } from '../domain/EmailSender';
 import { sendEmail } from '../domain/EmailSender';
+import { DomainEventPublisher } from '../../../shared/Module/core/application/event/DomainEventBus';
 
 export class SendEmailCommandHandler implements CommandHandler<SendEmailCommand> {
   constructor(
-    private readonly commandPublisher: CommandPublisher,
+    private readonly eventPublisher: DomainEventPublisher,
     private readonly currentTimeProvider: CurrentTimeProvider,
     private readonly entityIdGenerator: EntityIdGenerator,
   ) {}
@@ -23,17 +21,7 @@ export class SendEmailCommandHandler implements CommandHandler<SendEmailCommand>
       date: this.currentTimeProvider(),
     });
 
-    // const { state, events } = registerNewRecord(
-    //   this.currentTimeProvider(),
-    //   new UserEmailId(this.entityIdGenerator.generate()),
-    //   { userEmail: new EmailAddress(command.userEmail) },
-    // );
-
-    // await this.repository.save(state);
-    // const allRegistrations = await this.repository.findAll();
-    // this.eventPublisher.publishAll(events);
-    // return CommandResult.success(allRegistrations);
-
+    this.eventPublisher.publishAll(events);
     return CommandResult.success();
   }
 }

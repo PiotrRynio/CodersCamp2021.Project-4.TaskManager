@@ -2,6 +2,7 @@ import { CommandHandler } from './CommandHandler';
 import { CommandResult } from './CommandResult';
 import { Command } from './Command';
 import { HasConstructor } from '../../../common/HasConstructor';
+import { DomainEvent } from 'shared/Module/domain/event/DomainEvent';
 
 export interface CommandPublisher {
   execute<CommandType extends Command>(command: CommandType): Promise<CommandResult>;
