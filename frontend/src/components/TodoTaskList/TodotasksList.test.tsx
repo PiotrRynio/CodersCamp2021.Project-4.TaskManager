@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen } from 'test-utils';
 import { TodoTaskList } from './TodoTaskList';
-// import { TodoTask } from '../TodoTask/TodoTask';
 
 describe('TodoTaskList', () => {
   const taskTodoListMock = [
@@ -26,10 +25,4 @@ describe('TodoTaskList', () => {
     const todoTaskList = <TodoTaskList todoTasks={taskTodoListMock} />;
     render(todoTaskList);
   });
-  // it('should display list of todo tasks', () => {
-  // });
-  // it('should only display incomplete tasks by default', () => {
-  // });
-  // it('should toggle visibility of completed tasks when button is clicked', () => {
-  // });
 });
