@@ -19,12 +19,14 @@ export function taskRouter(
   const createTask = async (request: Request, response: Response) => {
     const requestBody: PostCreateTaskRequestBody = request.body;
 
-    const { taskName, userId } = requestBody;
+    const { taskName, userId, isDone, isImportant } = requestBody;
 
     const commandResult = await commandPublisher.execute(
       new AddTaskCommand({
         taskName,
         userId,
+        isDone,
+        isImportant,
       }),
     );
 
@@ -35,6 +37,8 @@ export function taskRouter(
             ({ taskName, userId }): TaskResponseDto => ({
               taskName,
               userId,
+              isDone,
+              isImportant,
             }),
           ),
         };
@@ -59,8 +63,10 @@ export function taskRouter(
   return router;
 }
 
-const toTasks = ({ userId, taskName }: Task): TaskResponseDto =>
+const toTasks = ({ userId, taskName, isDone, isImportant }: Task): TaskResponseDto =>
   new TaskResponseDto({
     userId,
     taskName,
+    isDone,
+    isImportant,
   });

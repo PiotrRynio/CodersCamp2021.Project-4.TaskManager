@@ -25,6 +25,8 @@ export class AddTaskCommandHandler implements CommandHandler<AddTaskCommand> {
         taskName: command.taskName,
         taskId: new TaskId(this.entityIdGenerator.generate()),
         userId: new UserId(command.userId),
+        isDone: command.isDone,
+        isImportant: command.isImportant,
       },
     });
 
