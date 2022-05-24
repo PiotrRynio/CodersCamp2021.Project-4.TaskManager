@@ -17,8 +17,8 @@ export const App = () => {
       <Layout>
         <Sider />
         <AppContent>
-          <Counter />
-          <Pokemon />
+          {/* <Counter /> */}
+          {/* <Pokemon /> */}
           <AppRoutes />
         </AppContent>
       </Layout>
