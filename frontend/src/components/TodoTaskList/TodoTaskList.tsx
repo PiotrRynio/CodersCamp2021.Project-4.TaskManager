@@ -1,23 +1,23 @@
 import { TodoTaskProps } from '../TodoTask/TodoTask';
 import { TodoTaskListProps } from './TodoTaskProps';
-import { TodoTaskDto } from '../../states/services/todoTasks';
+import { TodoTaskDto } from '../../states/services';
 import { useTodoTasks } from './useTodoTasks';
 import { TodoTask } from '../TodoTask/TodoTask';
 import { StyledList, StyledTodoTaskListFooter, StyledRow } from './TodoTaskList.styled';
 
 export const TodoTaskList = ({ todoTasks }: TodoTaskListProps) => {
-  const todoTaskListProps = todoTasks.map((task: TodoTaskDto): TodoTaskProps[] => {
-    return {
-      id: task.taskId,
-      text: task.taskName,
-      isDone: task.isDone,
-      isImportant: task.isImportant,
+  const todoTaskProps: TodoTaskProps[] = todoTasks.map(
+    (todoTask: TodoTaskDto): TodoTaskProps => ({
+      id: todoTask.userId,
+      text: todoTask.taskName,
       onStarClick: () => {},
       onDoneClick: () => {},
-    };
-  });
+      isDone: todoTask.isDone,
+      isImportant: todoTask.isImportant,
+    }),
+  );
 
-  const { tasks, completedTaskVisible, toggleTheVisibilityOfDoneTasks } = useTodoTasks(todoTaskListProps);
+  const { tasks, completedTaskVisible, toggleTheVisibilityOfDoneTasks } = useTodoTasks(todoTaskProps);
   return (
     <StyledList>
       {tasks.map((task: TodoTaskProps) => (
