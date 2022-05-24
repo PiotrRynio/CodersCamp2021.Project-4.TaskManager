@@ -1,5 +1,5 @@
-import { TodoTaskProps } from '../TodoTask/TodoTask';
+import { TodoTaskDto } from '../../states/services/todoTasks';
 
 export type TodoTaskListProps = {
-  todoTasks: TodoTaskProps[];
+  todoTasks: TodoTaskDto[];
 };

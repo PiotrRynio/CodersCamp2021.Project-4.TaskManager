@@ -5,7 +5,6 @@ export const Pokemon = () => {
   const { data, error, isLoading } = useGetPokemonByNameQuery('bulbasaur');
   // Individual hooks are also accessible under the generated endpoints:
   // const { data, error, isLoading } = pokemonApi.endpoints.getPokemonByName.useQuery('bulbasaur')
-  console.log(data, error, isLoading);
   return (
     <div className="App">
       {error ? (
