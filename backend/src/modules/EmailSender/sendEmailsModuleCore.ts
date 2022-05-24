@@ -1,12 +1,12 @@
 import { ModuleCore } from '../../shared/Module/core/ModuleCore';
 import { SendEmailCommand } from './application/SendEmailCommand';
 import { SendEmailCommandHandler } from './application/SendEmailCommandHandler';
-import { CommonModuleCoreProps } from 'shared/Module/CommonModuleCoreProps';
+import { CommonModuleCoreProps } from '../../shared/Module/CommonModuleCoreProps';
 
-import { TaskWasAddedEvent } from './application/TaskWasAddedEvent';
-import { TaskWasAddedEventHandler } from './application/TaskWasAddedEventHandler';
+import { NewTaskWasAddedEvent } from '../TodoTasks/domain/events/NewTaskWasAddedEvent';
+import { NewTaskWasAddedEventHandler } from './application/NewTaskWasAddedEventHandler';
 
-export function SendEmailModuleCore({
+export function SendEmailsModuleCore({
   eventPublisher,
   commandPublisher,
   currentTimeProvider,
@@ -21,8 +21,8 @@ export function SendEmailModuleCore({
     ],
     eventHandlers: [
       {
-        eventType: TaskWasAddedEvent,
-        handler: new TaskWasAddedEventHandler(commandPublisher, currentTimeProvider, entityIdGenerator),
+        eventType: NewTaskWasAddedEvent,
+        handler: new NewTaskWasAddedEventHandler(commandPublisher, currentTimeProvider, entityIdGenerator),
       },
     ],
     queryHandlers: [],

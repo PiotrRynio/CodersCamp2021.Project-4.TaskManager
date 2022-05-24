@@ -24,10 +24,15 @@ export function sendEmail({
   htmlContent: string;
   date: Date;
 }): DomainCommandResult<EmailSender> {
-  // Todo: wysłać maila
-  // Todo: stworzyć nowy stan
-  // Todo: stworzyć nowy event
-  // Todo: zwrócić event i stan
+  // TODO: send email here
+  console.log(`
+   💥
+    Email was sent to: ${emailAddress}, 
+    email subject: ${subject},
+    email content: ${htmlContent},
+    email date: ${date}
+  `);
+
   const newState = new EmailSender({
     emailAddress,
     subject,
