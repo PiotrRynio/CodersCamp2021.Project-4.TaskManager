@@ -2,13 +2,16 @@ import { configureStore } from '@reduxjs/toolkit';
 import { counterReducer } from '../slices';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { pokemonApi } from '../services/pokemon';
+import { todoTasksApi } from '../services/todoTasks';
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
     [pokemonApi.reducerPath]: pokemonApi.reducer,
+    [todoTasksApi.reducerPath]: todoTasksApi.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(pokemonApi.middleware),
+  // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(pokemonApi.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(todoTasksApi.middleware),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

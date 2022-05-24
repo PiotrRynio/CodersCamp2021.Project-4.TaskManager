@@ -34,11 +34,12 @@ export function taskRouter(
       (state: Task[]) => {
         const responseBody = {
           taskList: state.map(
-            ({ taskName, userId }): TaskResponseDto => ({
+            ({ taskName, userId, taskId }): TaskResponseDto => ({
               taskName,
               userId,
               isDone,
               isImportant,
+              taskId,
             }),
           ),
         };
@@ -63,10 +64,11 @@ export function taskRouter(
   return router;
 }
 
-const toTasks = ({ userId, taskName, isDone, isImportant }: Task): TaskResponseDto =>
+const toTasks = ({ userId, taskName, isDone, isImportant, taskId }: Task): TaskResponseDto =>
   new TaskResponseDto({
     userId,
     taskName,
     isDone,
     isImportant,
+    taskId,
   });
