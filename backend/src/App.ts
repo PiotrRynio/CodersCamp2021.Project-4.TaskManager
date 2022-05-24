@@ -26,6 +26,7 @@ import { EmailsListModuleCore } from './modules/emailsList/EmailsListModuleCore'
 import { InMemoryTasksRepository } from './modules/TodoTasks/infrastructure/inMemory/InMemoryTasksRepository';
 import { todoTasksModuleCore } from './modules/TodoTasks/todoTasksModuleCore';
 import { TasksRestApiModule } from './modules/TodoTasks/presentation/rest-api/TasksRestApiModule';
+import { SendEmailsModuleCore } from './modules/EmailSender/sendEmailsModuleCore';
 
 config();
 
@@ -54,6 +55,15 @@ export const app = async (
     restApi: EmailsListRestApiModule(commandBus, eventBus, queryBus),
   };
 
+  const emailSenderModule: Module = {
+    core: SendEmailsModuleCore({
+      eventPublisher: eventBus,
+      commandPublisher: commandBus,
+      currentTimeProvider: currentTimeProvider,
+      entityIdGenerator,
+    }),
+  };
+
   const todoTaskRepository = new InMemoryTasksRepository();
   const todoTaskListModule: Module = {
     core: todoTasksModuleCore({
@@ -66,7 +76,7 @@ export const app = async (
     restApi: TasksRestApiModule(commandBus, eventBus, queryBus),
   };
 
-  const modules: Module[] = [emailsListModule, todoTaskListModule].filter(isDefined);
+  const modules: Module[] = [emailsListModule, emailSenderModule, todoTaskListModule].filter(isDefined);
 
   const modulesCores: ModuleCore[] = modules.map((module) => module.core);
   initializeModuleCores(commandBus, eventBus, queryBus, modulesCores);
